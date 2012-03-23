@@ -1,0 +1,165 @@
+\bunit\b
+module
+
+\binterface\b
+// interface
+
+\bimplementation\b
+// implementation
+
+\buses\b
+import
+
+\binitialization\b
+shared static this()
+
+\bfinalization\b
+shared static ~this()
+
+\bvar\b
+// var
+
+\btype\b
+alias
+
+\{
+/*
+
+\}
+*/
+
+\bbegin\b
+{
+
+\bend\.
+
+
+\bend\b;?
+}
+
+(\w+): (\w+)
+$2 $1
+
+\bprocedure (\w+);
+void $1();
+
+\bprocedure (\w+)
+void $1
+
+\bfunction (\w+)\s*\((.*)\):\s*(\w+);
+$3 $1($2)
+
+\brepeat\b
+do {
+
+\buntil (.*);
+} while (!($1));
+
+\bif (.*) then\b
+if ($1)
+
+\bexcept\b
+catch {
+
+\brecord\b
+struct {
+
+\bfor (\w+)\s*:=(.*) to (.*) do\b
+foreach ($1; $2..$3+1)
+
+\bBreak\b
+break
+
+\bExit\b
+return
+
+([^=!><:])=([^=])
+$1==$2
+
+<>
+!=
+
+\$
+0x
+
+:=
+=
+
+@
+&
+
+["\\]
+\\$0
+
+'
+"
+
+\bInc\((\w+)\);
+$1++;
+
+\bDec\((\w+)\);
+$1--;
+
+\bInc\((\w+), (.*)\);
+$1 += $2;
+
+\bDec\((\w+), (.*)\);
+$1 -= $2;
+
+\bNew\((\w+)\);
+$1 = new typeof($1);
+
+\bFree\((\w+)\);
+delete $1;
+
+\band\b
+&&
+
+\bor\b
+||
+
+\bInteger\b
+int
+
+\bCardinal\b
+uint
+
+\bInt64\b
+long
+
+\bString\b
+string
+
+\bTHandle\b
+HANDLE
+
+\bFileExists\b
+exists
+
+\bIntToStr\b
+text
+
+\bStrToInt\b
+to!int
+
+\bnil\b
+null
+
+\bFalse\b
+false
+
+\bTrue\b
+true
+
+\^(\w+)
+$1*
+
+(\w+)\^
+*$1
+
+\!\(false\)
+true
+
+\!\(true\)
+false
+
