@@ -37,7 +37,7 @@ alias
 \bend\b;?
 }
 
-(\w+): (\w+)
+(\w+)\s*:\s*(\w+)
 $2 $1
 
 \bprocedure (\w+)(\s*\((.*)\))?;
@@ -70,6 +70,9 @@ foreach ($1; $2..$3+1)
 \bBreak\b
 break
 
+\bContinue\b
+continue
+
 \bExit\b
 return
 
@@ -93,6 +96,9 @@ $1==$2
 
 '
 "
+
+\b""\b
+'
 
 \bInc\((\w+)\);
 $1++;
