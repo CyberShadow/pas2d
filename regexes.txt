@@ -58,8 +58,17 @@ if (
  then\b
 )
 
+\braise (\w+).Create
+throw new $1
+
+\btry\b
+try {
+
 \bexcept\b
-catch {
+} catch {
+
+\bfinally\b
+} finally {
 
 \brecord\b
 struct {
@@ -85,8 +94,8 @@ $1==$2
 \$
 0x
 
-:=
-=
+\s*:=\s*
+ = 
 
 @
 &
@@ -174,4 +183,3 @@ true
 
 \!\(true\)
 false
-
